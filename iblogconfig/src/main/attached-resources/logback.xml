@@ -1,0 +1,20 @@
+<configuration debug="${logconfig.debug}">
+  <appender name="${logconfig.stdout.name}" class="${logconfig.stdout.appender}"
+    level="${logconfig.stdout.level}">
+    ${logconfig.file.block}
+    <encoder>
+      <pattern>${logconfig.stdout.pattern}</pattern>
+    </encoder>
+  </appender>
+  <logger name="io.vertx" level="${logconfig.vertx.level}">
+    <appender-ref ref="${logconfig.stdout.name}" />
+  </logger>
+  <logger name="org.infrastructurebuilder" level="${logconfig.ib.level}">
+    <appender-ref ref="${logconfig.stdout.name}" />
+  </logger>
+  <logger name="io.netty.util.internal.PlatformDependent" level="${logconfig.netty.level}">
+    <appender-ref ref="${logconfig.stdout.name}" />
+  </logger>
+  <root level="${logconfig.root.level}">
+  </root>
+</configuration>
