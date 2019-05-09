@@ -26,8 +26,6 @@
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
   <description>Generate configs for various logging environments.  See docs for how to create a new environment.</description>
-  <!-- URL for site gen -->
-  <url>${github.url.base}/${project.artifactId}</url>
   <properties>
     <surefire.failIfNoTests>false</surefire.failIfNoTests>
   </properties>

@@ -29,7 +29,6 @@
   <name>${project.artifactId}</name>
   <description>SLF4j-backed Maven Logging component.  This shouldn't be necessary and totally ends up being necessary...</description>
 	<!-- URL for site gen -->
-  <url>${github.url.base}/${project.artifactId}</url>
   <properties>
     <test.coverage.percentage.required>0</test.coverage.percentage.required>
   </properties>
