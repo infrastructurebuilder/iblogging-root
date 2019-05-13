@@ -15,9 +15,7 @@
     limitations under the License.
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.infrastructurebuilder</groupId>
@@ -26,7 +24,7 @@
   </parent>
   <groupId>org.infrastructurebuilder.util</groupId>
   <artifactId>iblogging-root</artifactId>
-  <version>0.9.0-SNAPSHOT</version>
+  <version>0.9.0</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>Logging config should be relatively standardized.  The artifacts from this build will allow for that as `type` XML artifacts</description>
@@ -42,7 +40,7 @@
     <connection>scm:git:${git.url}</connection>
     <developerConnection>scm:git:${git.url}</developerConnection>
     <url>${git.scm.url}</url>
-    <tag>HEAD</tag>
+    <tag>iblogging-root-0.9.0</tag>
   </scm>
   <dependencyManagement>
     <dependencies>
