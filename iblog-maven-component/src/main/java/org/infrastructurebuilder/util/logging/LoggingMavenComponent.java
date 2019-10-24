@@ -17,6 +17,7 @@ package org.infrastructurebuilder.util.logging;
 
 import java.util.Optional;
 
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.maven.plugin.logging.Log;
@@ -34,7 +35,16 @@ public class LoggingMavenComponent implements Log {
 
   private Logger log = LoggerFactory.getLogger(LoggingMavenComponent.class);
 
+  @Inject
   public LoggingMavenComponent() {
+  }
+
+  public LoggingMavenComponent(Logger log) {
+    this.log = log;
+  }
+  // Check type then cast to LoggingMavenComponent then setLog
+  public void setLog(Logger log) {
+    this.log = log;
   }
 
   @Override
