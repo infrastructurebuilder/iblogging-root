@@ -40,7 +40,8 @@ public class LoggingMavenComponent implements Log {
   }
 
   public LoggingMavenComponent(Logger log) {
-    this.log = log;
+    this();
+    this.setLog(log);
   }
   // Check type then cast to LoggingMavenComponent then setLog
   public void setLog(Logger log) {

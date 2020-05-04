@@ -15,7 +15,6 @@
  */
 package org.infrastructurebuilder.util.logging;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -31,9 +30,12 @@ import org.eclipse.sisu.wire.WireModule;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoggingMavenComponentTest {
 
+  public final static Logger logger = LoggerFactory.getLogger(LoggingMavenComponentTest.class);
   @BeforeClass
   public static void setUpBeforeClass() throws Exception {
   }
@@ -55,6 +57,12 @@ public class LoggingMavenComponentTest {
 
     cLog = (Log) c.lookup("org.apache.maven.plugin.logging.Log", "logging-maven-component");
 
+  }
+
+  @Test
+  public void testCons() {
+    LoggingMavenComponent a = new LoggingMavenComponent(logger);
+    assertNotNull(a);
   }
 
   @Test

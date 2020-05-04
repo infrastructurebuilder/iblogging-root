@@ -26,6 +26,9 @@
   <logger name="io.vertx" level="${logconfig.vertx.level}">
     <appender-ref ref="${logconfig.stdout.name}" />
   </logger>
+  <logger name="com.zaxxer.hikari.pool" level="${logconfig.hikaripool.level}">
+    <appender-ref ref="${logconfig.stdout.name}" />
+  </logger>
   <logger name="org.infrastructurebuilder" level="${logconfig.ib.level}">
     <appender-ref ref="${logconfig.stdout.name}" />
   </logger>
