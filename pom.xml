@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.infrastructurebuilder</groupId>
     <artifactId>ibparent</artifactId>
-    <version>40</version>
+    <version>41-SNAPSHOT</version>
   </parent>
   <groupId>org.infrastructurebuilder.util</groupId>
   <artifactId>iblogging-root</artifactId>
