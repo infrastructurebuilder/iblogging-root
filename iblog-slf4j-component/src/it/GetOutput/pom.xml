@@ -19,7 +19,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.infrastructurebuilder.util</groupId>
+    <groupId>org.infrastructurebuilder.util.logging</groupId>
     <artifactId>test-parent-junit</artifactId>
     <version>@project.version@</version>
     <relativePath>../../std-invoker/test-parent-junit/pom.xml</relativePath>
@@ -34,7 +34,7 @@
       <artifactId>plexus-component-annotations</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.infrastructurebuilder.util</groupId>
+      <groupId>org.infrastructurebuilder.util.logging</groupId>
       <artifactId>iblogconfig</artifactId>
       <version>@project.version@</version>
       <classifier>test</classifier>
