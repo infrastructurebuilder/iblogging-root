@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright © 2019 admin (admin@infrastructurebuilder.org)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,13 +38,15 @@
  */
 package org.infrastructurebuilder.util.logging;
 
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+
 import org.joor.Reflect;
-import org.slf4j.Logger;
 import org.slf4j.helpers.MarkerIgnoringBase;
 
 public class SLF4JFromMavenLogger extends MarkerIgnoringBase {
   private static final long serialVersionUID = 1882197939628480859L;
-  private final Logger proxy;
+  private final Logger      proxy;
 
   public SLF4JFromMavenLogger(final Object o) {
 
@@ -53,95 +55,95 @@ public class SLF4JFromMavenLogger extends MarkerIgnoringBase {
 
   @Override
   public void debug(final String msg) {
-    proxy.debug(msg);
+    proxy.log(Level.DEBUG, msg);
   }
 
   @Override
   public void debug(final String format, final Object arg) {
-    proxy.debug(String.format(format, arg));
+    proxy.log(Level.DEBUG, String.format(format, arg));
   }
 
   @Override
   public void debug(final String format, final Object... arguments) {
-    proxy.debug(String.format(format, arguments));
+    proxy.log(Level.DEBUG, String.format(format, arguments));
   }
 
   @Override
   public void debug(final String format, final Object arg1, final Object arg2) {
-    proxy.debug(String.format(format, arg1, arg2));
+    proxy.log(Level.DEBUG, String.format(format, arg1, arg2));
 
   }
 
   @Override
   public void debug(final String msg, final Throwable t) {
-    proxy.debug(msg, t);
+    proxy.log(Level.DEBUG, msg, t);
   }
 
   @Override
   public void error(final String msg) {
-    proxy.error(msg);
+    proxy.log(Logger.Level.ERROR, msg);
   }
 
   @Override
   public void error(final String format, final Object arg) {
-    proxy.error(String.format(format, arg));
+    proxy.log(Logger.Level.ERROR, String.format(format, arg));
   }
 
   @Override
   public void error(final String format, final Object... arguments) {
-    proxy.error(String.format(format, arguments));
+    proxy.log(Logger.Level.ERROR, String.format(format, arguments));
   }
 
   @Override
   public void error(final String format, final Object arg1, final Object arg2) {
-    proxy.error(String.format(format, arg1, arg2));
+    proxy.log(Logger.Level.ERROR, String.format(format, arg1, arg2));
 
   }
 
   @Override
   public void error(final String msg, final Throwable t) {
-    proxy.error(msg, t);
+    proxy.log(Logger.Level.ERROR, msg, t);
   }
 
   @Override
   public void info(final String msg) {
-    proxy.info(msg);
+    proxy.log(Logger.Level.INFO, msg);
   }
 
   @Override
   public void info(final String format, final Object arg) {
-    proxy.info(String.format(format, arg));
+    proxy.log(Logger.Level.INFO, String.format(format, arg));
   }
 
   @Override
   public void info(final String format, final Object... arguments) {
-    proxy.info(String.format(format, arguments));
+    proxy.log(Logger.Level.INFO, String.format(format, arguments));
   }
 
   @Override
   public void info(final String format, final Object arg1, final Object arg2) {
-    proxy.info(String.format(format, arg1, arg2));
+    proxy.log(Logger.Level.INFO, String.format(format, arg1, arg2));
 
   }
 
   @Override
   public void info(final String msg, final Throwable t) {
-    proxy.info(msg, t);
+    proxy.log(Logger.Level.INFO, msg, t);
   }
 
   @Override
   public boolean isDebugEnabled() {
-    return proxy.isDebugEnabled();
+    return proxy.isLoggable(Level.DEBUG);
   }
 
   @Override
   public boolean isErrorEnabled() {
-    return proxy.isErrorEnabled();
+    return proxy.isLoggable(Level.ERROR);
   }
 
   @Override
   public boolean isInfoEnabled() {
-    return proxy.isInfoEnabled();
+    return proxy.isLoggable(Level.INFO);
   }
 
   @Override
@@ -151,7 +153,7 @@ public class SLF4JFromMavenLogger extends MarkerIgnoringBase {
 
   @Override
   public boolean isWarnEnabled() {
-    return proxy.isWarnEnabled();
+    return proxy.isLoggable(Level.WARNING);
   }
 
   @Override
@@ -176,27 +178,27 @@ public class SLF4JFromMavenLogger extends MarkerIgnoringBase {
 
   @Override
   public void warn(final String msg) {
-    proxy.warn(msg);
+    proxy.log(Logger.Level.WARNING, msg);
   }
 
   @Override
   public void warn(final String format, final Object arg) {
-    proxy.warn(String.format(format, arg));
+    proxy.log(Logger.Level.WARNING, String.format(format, arg));
   }
 
   @Override
   public void warn(final String format, final Object... arguments) {
-    proxy.warn(String.format(format, arguments));
+    proxy.log(Logger.Level.WARNING, String.format(format, arguments));
   }
 
   @Override
   public void warn(final String format, final Object arg1, final Object arg2) {
-    proxy.warn(String.format(format, arg1, arg2));
+    proxy.log(Logger.Level.WARNING, String.format(format, arg1, arg2));
 
   }
 
   @Override
   public void warn(final String msg, final Throwable t) {
-    proxy.warn(msg, t);
+    proxy.log(Logger.Level.WARNING, msg, t);
   }
 }

@@ -14,33 +14,52 @@
  * limitations under the License.
  */
 /**
- * 
  *
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  *
- * 
- * 
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
-import java.io.*
-import java.util.*
-import java.util.regex.*
+package org.infrastructurebuilder.util.logging;
 
-context.put( "touchFile", new File( basedir, "touch.txt" ) )
+import java.util.ResourceBundle;
 
-println context
-           
+public class NOOPLogger implements System.Logger {
+  public NOOPLogger() {
+    System.err.println("NOOP Logger Created");
+  }
+
+  @Override
+  public String getName() {
+    return getClass().getName();
+  }
+
+  @Override
+  public boolean isLoggable(Level arg0) {
+    return false;
+  }
+
+  @Override
+  public void log(Level arg0, ResourceBundle arg1, String arg2, Throwable arg3) {
+  }
+
+  @Override
+  public void log(Level arg0, ResourceBundle arg1, String arg2, Object... arg3) {
+  }
+}

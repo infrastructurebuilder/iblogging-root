@@ -14,33 +14,41 @@
  * limitations under the License.
  */
 /**
- * 
  *
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
  *
- * 
- * 
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
+ *
  */
-import java.io.*
-import java.util.*
-import java.util.regex.*
+package org.infrastructurebuilder.util.logging;
 
-context.put( "touchFile", new File( basedir, "touch.txt" ) )
+import org.junit.Before;
+import org.junit.Test;
 
-println context
-           
+public class NOOPLoggerTest {
+
+  @Before
+  public void setUp() throws Exception {
+  }
+
+  @Test
+  public void testNOOPLogger() {
+  }
+
+}

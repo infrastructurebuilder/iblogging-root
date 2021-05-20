@@ -15,21 +15,39 @@
  */
 package test;
 
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 import org.apache.maven.plugin.logging.Log;
-import org.codehaus.plexus.component.annotations.Component;
+import org.codehaus.plexus.PlexusTestCase;
 import org.codehaus.plexus.component.annotations.Requirement;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
-@Component(instantiationStrategy = "per-lookup", role = ShowOutput.class, hint = "injectTest", description = "SLF4j-backed Maven Log")
-public class ShowOutput {
+public class IBLoggingTest extends PlexusTestCase {
 
-    @Requirement
-    Log log;
-
-    public ShowOutput() {
+    @BeforeClass
+    public static void setUpBeforeClass() throws Exception {
     }
 
-    public void doIt() {
-        log.log(Logger.Level.ERROR,"ERROR.  OH NOES");
+    @Before
+    public void setUp() throws Exception {
+        super.setUp();
+        comp = ( org.apache.maven.plugin.logging.Log) lookup( org.apache.maven.plugin.logging.Log.class);
+
+    }
+
+    @Requirement
+    org.apache.maven.plugin.logging.Log comp;
+
+    @Test
+    public void testShowOutput() {
+        assertNotNull("Got component", comp);
+        comp.log(Logger.Level.INFO,"X");
     }
 
 }

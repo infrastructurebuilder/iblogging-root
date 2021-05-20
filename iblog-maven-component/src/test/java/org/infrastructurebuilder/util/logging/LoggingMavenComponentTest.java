@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright © 2019 admin (admin@infrastructurebuilder.org)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,6 +15,7 @@
  */
 package org.infrastructurebuilder.util.logging;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -30,12 +31,12 @@ import org.eclipse.sisu.wire.WireModule;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.lang.System; import java.lang.System.Logger;
+
 
 public class LoggingMavenComponentTest {
 
-  public final static Logger logger = LoggerFactory.getLogger(LoggingMavenComponentTest.class);
+  public final static Logger logger = System.getLogger(LoggingMavenComponentTest.class.getName());
   @BeforeClass
   public static void setUpBeforeClass() throws Exception {
   }
@@ -68,18 +69,19 @@ public class LoggingMavenComponentTest {
   @Test
   public void testComponent() {
     cLog.info("X");
-    cLog.info("X", new RuntimeException("X"));
-    cLog.info(new RuntimeException("X"));
+    RuntimeException k = new RuntimeException("X");
+    cLog.info("X", k);
+    cLog.info(k);
     cLog.debug("Y");
-    cLog.debug("Y", new RuntimeException("X"));
-    cLog.debug(new RuntimeException("X"));
+    cLog.debug("Y", k);
+    cLog.debug(k);
     cLog.error("error");
-    cLog.error("error", new RuntimeException("X"));
-    cLog.error(new RuntimeException("X"));
+    cLog.error("error", k);
+    cLog.error(k);
     cLog.warn("Warning");
-    cLog.warn("Warning", new RuntimeException("X"));
-    cLog.warn(new RuntimeException("X"));
-    assertTrue(cLog.isDebugEnabled());
+    cLog.warn("Warning", k);
+    cLog.warn(k);
+    assertFalse(cLog.isDebugEnabled());
     assertTrue(cLog.isErrorEnabled());
     assertTrue(cLog.isWarnEnabled());
     assertTrue(cLog.isInfoEnabled());

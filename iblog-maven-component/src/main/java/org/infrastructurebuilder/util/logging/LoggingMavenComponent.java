@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright © 2019 admin (admin@infrastructurebuilder.org)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,8 +21,11 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.maven.plugin.logging.Log;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
+
+import java.lang.System;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 
 @Named("logging-maven-component")
 public class LoggingMavenComponent implements Log {
@@ -33,7 +36,7 @@ public class LoggingMavenComponent implements Log {
     return cs.toString();
   }
 
-  private Logger log = LoggerFactory.getLogger(LoggingMavenComponent.class);
+  private Logger log = System.getLogger(LoggingMavenComponent.class.getName());
 
   @Inject
   public LoggingMavenComponent() {
@@ -43,6 +46,7 @@ public class LoggingMavenComponent implements Log {
     this();
     this.setLog(log);
   }
+
   // Check type then cast to LoggingMavenComponent then setLog
   public void setLog(Logger log) {
     this.log = log;
@@ -50,95 +54,95 @@ public class LoggingMavenComponent implements Log {
 
   @Override
   public void debug(final CharSequence content) {
-    log.debug(content(content));
+    log.log(Level.DEBUG,content(content));
   }
 
   @Override
   public void debug(final CharSequence content, final Throwable error) {
-    log.debug(content(content), error);
+    log.log(Level.DEBUG,content(content), error);
   }
 
   @Override
   public void debug(final Throwable error) {
-    log.debug(content(null), error);
+    log.log(Level.DEBUG,content(null), error);
   }
 
   @Override
   public void error(final CharSequence content) {
-    log.error(content(content));
+    log.log(Logger.Level.ERROR, content(content));
   }
 
   @Override
   public void error(final CharSequence content, final Throwable error) {
-    log.error(content(content), error);
+    log.log(Logger.Level.ERROR, content(content), error);
 
   }
 
   @Override
   public void error(final Throwable error) {
-    log.error(content(null), error);
+    log.log(Logger.Level.ERROR, content(null), error);
 
   }
 
   @Override
   public void info(final CharSequence content) {
-    log.info(content(content));
+    log.log(Logger.Level.INFO, content(content));
   }
 
   @Override
   public void info(final CharSequence content, final Throwable error) {
-    log.info(Optional.ofNullable(content).orElse(content(null)).toString(), error);
+    log.log(Logger.Level.INFO, Optional.ofNullable(content).orElse(content(null)).toString(), error);
 
   }
 
   @Override
   public void info(final Throwable error) {
-    log.info(content(null), error);
+    log.log(Logger.Level.INFO, content(null), error);
   }
 
   @Override
   public boolean isDebugEnabled() {
-    return log.isDebugEnabled();
+    return log.isLoggable(Level.DEBUG);
   }
 
   @Override
   public boolean isErrorEnabled() {
-    return log.isErrorEnabled();
+    return log.isLoggable(Level.ERROR);
   }
 
   @Override
   public boolean isInfoEnabled() {
-    return log.isInfoEnabled();
+    return log.isLoggable(Level.INFO);
   }
 
   @Override
   public boolean isWarnEnabled() {
-    return log.isWarnEnabled();
+    return log.isLoggable(Level.WARNING);
   }
 
   public final LoggingMavenComponent setClass(final Class<?> clazz) {
-    log = LoggerFactory.getLogger(clazz);
+    log = System.getLogger(clazz.getName());
     return this;
   }
 
   public final LoggingMavenComponent setClass(final String clazz) {
-    log = LoggerFactory.getLogger(clazz);
+    log = System.getLogger(clazz);
     return this;
   }
 
   @Override
   public void warn(final CharSequence content) {
-    log.warn(content(content));
+    log.log(Logger.Level.WARNING, content(content));
   }
 
   @Override
   public void warn(final CharSequence content, final Throwable error) {
-    log.warn(content(content), error);
+    log.log(Logger.Level.WARNING, content(content), error);
   }
 
   @Override
   public void warn(final Throwable error) {
-    log.warn(content(null), error);
+    log.log(Logger.Level.WARNING, content(null), error);
   }
 
 }
