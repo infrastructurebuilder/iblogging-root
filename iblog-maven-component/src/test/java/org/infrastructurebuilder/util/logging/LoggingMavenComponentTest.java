@@ -15,9 +15,12 @@
  */
 package org.infrastructurebuilder.util.logging;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.infrastructurebuilder.util.logging.LoggingMavenComponent.LOGGING_MAVEN_COMPONENT;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.lang.System.Logger;
 
 import org.apache.maven.plugin.logging.Log;
 import org.codehaus.plexus.ContainerConfiguration;
@@ -28,16 +31,15 @@ import org.codehaus.plexus.classworlds.ClassWorld;
 import org.eclipse.sisu.space.SpaceModule;
 import org.eclipse.sisu.space.URLClassSpace;
 import org.eclipse.sisu.wire.WireModule;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import java.lang.System; import java.lang.System.Logger;
-
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class LoggingMavenComponentTest {
 
   public final static Logger logger = System.getLogger(LoggingMavenComponentTest.class.getName());
-  @BeforeClass
+
+  @BeforeAll
   public static void setUpBeforeClass() throws Exception {
   }
 
@@ -46,23 +48,24 @@ public class LoggingMavenComponentTest {
   private ContainerConfiguration dpcreq;
   private DefaultPlexusContainer c;
 
-  @Before
+  @BeforeEach
   public void setUp() throws Exception {
 
-    final String realm = "testing";
-    kw = new ClassWorld(realm, this.getClass().getClassLoader());
+//    final String realm = "testing";
+//    kw = new ClassWorld(realm, this.getClass().getClassLoader());
+//
+//    dpcreq = new DefaultContainerConfiguration().setClassWorld(kw).setClassPathScanning(PlexusConstants.SCANNING_INDEX)
+//        .setName(realm);
+//    c = new DefaultPlexusContainer(dpcreq, new WireModule(new SpaceModule(new URLClassSpace(kw.getClassRealm(realm)))));
+//
+//    cLog = (Log) c.lookup(Log.class.getCanonicalName().toString(), LOGGING_MAVEN_COMPONENT);
 
-    dpcreq = new DefaultContainerConfiguration().setClassWorld(kw).setClassPathScanning(PlexusConstants.SCANNING_INDEX)
-        .setName(realm);
-    c = new DefaultPlexusContainer(dpcreq, new WireModule(new SpaceModule(new URLClassSpace(kw.getClassRealm(realm)))));
-
-    cLog = (Log) c.lookup("org.apache.maven.plugin.logging.Log", "logging-maven-component");
-
+    cLog = new LoggingMavenComponent();
   }
 
   @Test
   public void testCons() {
-    LoggingMavenComponent a = new LoggingMavenComponent(logger);
+    LoggingMavenComponent a = new LoggingMavenComponent();
     assertNotNull(a);
   }
 
@@ -89,7 +92,7 @@ public class LoggingMavenComponentTest {
 
   @Test
   public void testLoggingMavenComponent() {
-    assertNotNull("Got component", cLog);
+    assertNotNull(cLog, "Got component");
   }
 
   @Test

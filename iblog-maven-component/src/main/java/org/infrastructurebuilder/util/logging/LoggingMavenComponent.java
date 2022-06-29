@@ -27,8 +27,10 @@ import java.lang.System;
 import java.lang.System.Logger;
 import java.lang.System.Logger.Level;
 
-@Named("logging-maven-component")
+@Named(LoggingMavenComponent.LOGGING_MAVEN_COMPONENT)
 public class LoggingMavenComponent implements Log {
+
+  public static final String LOGGING_MAVEN_COMPONENT = "logging-maven-component";
 
   private final static String content(final CharSequence cs) {
     if (cs == null)
@@ -42,15 +44,15 @@ public class LoggingMavenComponent implements Log {
   public LoggingMavenComponent() {
   }
 
-  public LoggingMavenComponent(Logger log) {
-    this();
-    this.setLog(log);
-  }
-
-  // Check type then cast to LoggingMavenComponent then setLog
-  public void setLog(Logger log) {
-    this.log = log;
-  }
+//  public LoggingMavenComponent(Logger log) {
+//    this();
+//    this.setLog(log);
+//  }
+//
+//  // Check type then cast to LoggingMavenComponent then setLog
+//  public void setLog(Logger log) {
+//    this.log = log;
+//  }
 
   @Override
   public void debug(final CharSequence content) {
