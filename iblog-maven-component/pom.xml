@@ -20,7 +20,7 @@
   <parent>
     <groupId>org.infrastructurebuilder.util.logging</groupId>
     <artifactId>iblogging-root</artifactId>
-    <version>0.13.3-SNAPSHOT</version>
+    <version>0.13.2-SNAPSHOT</version>
   </parent>
   <artifactId>iblog-maven-component</artifactId>
   <packaging>jar</packaging>
