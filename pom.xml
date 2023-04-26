@@ -24,7 +24,7 @@
   </parent>
   <groupId>org.infrastructurebuilder.util.logging</groupId>
   <artifactId>iblogging-root</artifactId>
-  <version>0.14.0</version>
+  <version>0.14.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>${project.artifactId}</name>
   <description>Logging config should be relatively standardized.  The artifacts from this build will allow for that as `type` XML artifacts</description>
@@ -40,7 +40,7 @@
     <connection>scm:git:${git.url}</connection>
     <developerConnection>scm:git:${git.url}</developerConnection>
     <url>${git.scm.url}</url>
-    <tag>iblogging-root-0.14.0</tag>
+    <tag>HEAD</tag>
   </scm>
   <dependencyManagement>
     <dependencies>
