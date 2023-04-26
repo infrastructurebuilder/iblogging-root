@@ -38,28 +38,9 @@
  */
 package org.infrastructurebuilder.util.logging;
 
-import java.util.ResourceBundle;
+import org.slf4j.helpers.NOPLogger;
 
-public class NOOPLogger implements System.Logger {
-  public NOOPLogger() {
-    System.err.println("NOOP Logger Created");
-  }
+public class NOOPLogger extends NOPLogger {
+  private static final long serialVersionUID = -4145894008127584024L;
 
-  @Override
-  public String getName() {
-    return getClass().getName();
-  }
-
-  @Override
-  public boolean isLoggable(Level arg0) {
-    return false;
-  }
-
-  @Override
-  public void log(Level arg0, ResourceBundle arg1, String arg2, Throwable arg3) {
-  }
-
-  @Override
-  public void log(Level arg0, ResourceBundle arg1, String arg2, Object... arg3) {
-  }
 }

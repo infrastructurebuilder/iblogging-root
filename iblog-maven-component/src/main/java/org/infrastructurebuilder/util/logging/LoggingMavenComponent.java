@@ -21,11 +21,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.apache.maven.plugin.logging.Log;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.System;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 
 @Named(LoggingMavenComponent.LOGGING_MAVEN_COMPONENT)
 public class LoggingMavenComponent implements Log {
@@ -38,7 +37,7 @@ public class LoggingMavenComponent implements Log {
     return cs.toString();
   }
 
-  private Logger log = System.getLogger(LoggingMavenComponent.class.getName());
+  private Logger log = LoggerFactory.getLogger(LoggingMavenComponent.class.getName());
 
   @Inject
   public LoggingMavenComponent() {
@@ -56,95 +55,95 @@ public class LoggingMavenComponent implements Log {
 
   @Override
   public void debug(final CharSequence content) {
-    log.log(Level.DEBUG,content(content));
+    log.debug(content(content));
   }
 
   @Override
   public void debug(final CharSequence content, final Throwable error) {
-    log.log(Level.DEBUG,content(content), error);
+    log.debug(content(content), error);
   }
 
   @Override
   public void debug(final Throwable error) {
-    log.log(Level.DEBUG,content(null), error);
+    log.debug(content(null), error);
   }
 
   @Override
   public void error(final CharSequence content) {
-    log.log(Logger.Level.ERROR, content(content));
+    log.error( content(content));
   }
 
   @Override
   public void error(final CharSequence content, final Throwable error) {
-    log.log(Logger.Level.ERROR, content(content), error);
+    log.error( content(content), error);
 
   }
 
   @Override
   public void error(final Throwable error) {
-    log.log(Logger.Level.ERROR, content(null), error);
+    log.error( content(null), error);
 
   }
 
   @Override
   public void info(final CharSequence content) {
-    log.log(Logger.Level.INFO, content(content));
+    log.info( content(content));
   }
 
   @Override
   public void info(final CharSequence content, final Throwable error) {
-    log.log(Logger.Level.INFO, Optional.ofNullable(content).orElse(content(null)).toString(), error);
+    log.info( Optional.ofNullable(content).orElse(content(null)).toString(), error);
 
   }
 
   @Override
   public void info(final Throwable error) {
-    log.log(Logger.Level.INFO, content(null), error);
+    log.info( content(null), error);
   }
 
   @Override
   public boolean isDebugEnabled() {
-    return log.isLoggable(Level.DEBUG);
+    return log.isDebugEnabled();
   }
 
   @Override
   public boolean isErrorEnabled() {
-    return log.isLoggable(Level.ERROR);
+    return log.isErrorEnabled();
   }
 
   @Override
   public boolean isInfoEnabled() {
-    return log.isLoggable(Level.INFO);
+    return log.isInfoEnabled();
   }
 
   @Override
   public boolean isWarnEnabled() {
-    return log.isLoggable(Level.WARNING);
+    return log.isWarnEnabled();
   }
 
   public final LoggingMavenComponent setClass(final Class<?> clazz) {
-    log = System.getLogger(clazz.getName());
+    log = LoggerFactory.getLogger(clazz.getName());
     return this;
   }
 
   public final LoggingMavenComponent setClass(final String clazz) {
-    log = System.getLogger(clazz);
+    log = LoggerFactory.getLogger(clazz);
     return this;
   }
 
   @Override
   public void warn(final CharSequence content) {
-    log.log(Logger.Level.WARNING, content(content));
+    log.warn( content(content));
   }
 
   @Override
   public void warn(final CharSequence content, final Throwable error) {
-    log.log(Logger.Level.WARNING, content(content), error);
+    log.warn( content(content), error);
   }
 
   @Override
   public void warn(final Throwable error) {
-    log.log(Logger.Level.WARNING, content(null), error);
+    log.warn( content(null), error);
   }
 
 }

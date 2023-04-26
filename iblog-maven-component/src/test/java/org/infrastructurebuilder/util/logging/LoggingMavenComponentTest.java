@@ -15,29 +15,23 @@
  */
 package org.infrastructurebuilder.util.logging;
 
-import static org.infrastructurebuilder.util.logging.LoggingMavenComponent.LOGGING_MAVEN_COMPONENT;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.lang.System.Logger;
-
 import org.apache.maven.plugin.logging.Log;
 import org.codehaus.plexus.ContainerConfiguration;
-import org.codehaus.plexus.DefaultContainerConfiguration;
 import org.codehaus.plexus.DefaultPlexusContainer;
-import org.codehaus.plexus.PlexusConstants;
 import org.codehaus.plexus.classworlds.ClassWorld;
-import org.eclipse.sisu.space.SpaceModule;
-import org.eclipse.sisu.space.URLClassSpace;
-import org.eclipse.sisu.wire.WireModule;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class LoggingMavenComponentTest {
 
-  public final static Logger logger = System.getLogger(LoggingMavenComponentTest.class.getName());
+  public final static Logger logger = LoggerFactory.getLogger(LoggingMavenComponentTest.class);
 
   @BeforeAll
   public static void setUpBeforeClass() throws Exception {
@@ -84,7 +78,7 @@ public class LoggingMavenComponentTest {
     cLog.warn("Warning");
     cLog.warn("Warning", k);
     cLog.warn(k);
-    assertFalse(cLog.isDebugEnabled());
+    assertTrue(cLog.isDebugEnabled());
     assertTrue(cLog.isErrorEnabled());
     assertTrue(cLog.isWarnEnabled());
     assertTrue(cLog.isInfoEnabled());

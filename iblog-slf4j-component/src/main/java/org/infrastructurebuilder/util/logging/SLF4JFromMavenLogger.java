@@ -38,15 +38,13 @@
  */
 package org.infrastructurebuilder.util.logging;
 
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
-
 import org.joor.Reflect;
+import org.slf4j.Logger;
 import org.slf4j.helpers.MarkerIgnoringBase;
 
 public class SLF4JFromMavenLogger extends MarkerIgnoringBase {
   private static final long serialVersionUID = 1882197939628480859L;
-  private final Logger      proxy;
+  private final Logger proxy;
 
   public SLF4JFromMavenLogger(final Object o) {
 
@@ -55,95 +53,95 @@ public class SLF4JFromMavenLogger extends MarkerIgnoringBase {
 
   @Override
   public void debug(final String msg) {
-    proxy.log(Level.DEBUG, msg);
+    proxy.debug(msg);
   }
 
   @Override
   public void debug(final String format, final Object arg) {
-    proxy.log(Level.DEBUG, String.format(format, arg));
+    proxy.debug(String.format(format, arg));
   }
 
   @Override
   public void debug(final String format, final Object... arguments) {
-    proxy.log(Level.DEBUG, String.format(format, arguments));
+    proxy.debug(String.format(format, arguments));
   }
 
   @Override
   public void debug(final String format, final Object arg1, final Object arg2) {
-    proxy.log(Level.DEBUG, String.format(format, arg1, arg2));
+    proxy.debug(String.format(format, arg1, arg2));
 
   }
 
   @Override
   public void debug(final String msg, final Throwable t) {
-    proxy.log(Level.DEBUG, msg, t);
+    proxy.debug(msg, t);
   }
 
   @Override
   public void error(final String msg) {
-    proxy.log(Logger.Level.ERROR, msg);
+    proxy.error(msg);
   }
 
   @Override
   public void error(final String format, final Object arg) {
-    proxy.log(Logger.Level.ERROR, String.format(format, arg));
+    proxy.error(String.format(format, arg));
   }
 
   @Override
   public void error(final String format, final Object... arguments) {
-    proxy.log(Logger.Level.ERROR, String.format(format, arguments));
+    proxy.error(String.format(format, arguments));
   }
 
   @Override
   public void error(final String format, final Object arg1, final Object arg2) {
-    proxy.log(Logger.Level.ERROR, String.format(format, arg1, arg2));
+    proxy.error(String.format(format, arg1, arg2));
 
   }
 
   @Override
   public void error(final String msg, final Throwable t) {
-    proxy.log(Logger.Level.ERROR, msg, t);
+    proxy.error(msg, t);
   }
 
   @Override
   public void info(final String msg) {
-    proxy.log(Logger.Level.INFO, msg);
+    proxy.info(msg);
   }
 
   @Override
   public void info(final String format, final Object arg) {
-    proxy.log(Logger.Level.INFO, String.format(format, arg));
+    proxy.info(String.format(format, arg));
   }
 
   @Override
   public void info(final String format, final Object... arguments) {
-    proxy.log(Logger.Level.INFO, String.format(format, arguments));
+    proxy.info(String.format(format, arguments));
   }
 
   @Override
   public void info(final String format, final Object arg1, final Object arg2) {
-    proxy.log(Logger.Level.INFO, String.format(format, arg1, arg2));
+    proxy.info(String.format(format, arg1, arg2));
 
   }
 
   @Override
   public void info(final String msg, final Throwable t) {
-    proxy.log(Logger.Level.INFO, msg, t);
+    proxy.info(msg, t);
   }
 
   @Override
   public boolean isDebugEnabled() {
-    return proxy.isLoggable(Level.DEBUG);
+    return proxy.isDebugEnabled();
   }
 
   @Override
   public boolean isErrorEnabled() {
-    return proxy.isLoggable(Level.ERROR);
+    return proxy.isErrorEnabled();
   }
 
   @Override
   public boolean isInfoEnabled() {
-    return proxy.isLoggable(Level.INFO);
+    return proxy.isInfoEnabled();
   }
 
   @Override
@@ -153,7 +151,7 @@ public class SLF4JFromMavenLogger extends MarkerIgnoringBase {
 
   @Override
   public boolean isWarnEnabled() {
-    return proxy.isLoggable(Level.WARNING);
+    return proxy.isWarnEnabled();
   }
 
   @Override
@@ -178,27 +176,27 @@ public class SLF4JFromMavenLogger extends MarkerIgnoringBase {
 
   @Override
   public void warn(final String msg) {
-    proxy.log(Logger.Level.WARNING, msg);
+    proxy.warn(msg);
   }
 
   @Override
   public void warn(final String format, final Object arg) {
-    proxy.log(Logger.Level.WARNING, String.format(format, arg));
+    proxy.warn(String.format(format, arg));
   }
 
   @Override
   public void warn(final String format, final Object... arguments) {
-    proxy.log(Logger.Level.WARNING, String.format(format, arguments));
+    proxy.warn(String.format(format, arguments));
   }
 
   @Override
   public void warn(final String format, final Object arg1, final Object arg2) {
-    proxy.log(Logger.Level.WARNING, String.format(format, arg1, arg2));
+    proxy.warn(String.format(format, arg1, arg2));
 
   }
 
   @Override
   public void warn(final String msg, final Throwable t) {
-    proxy.log(Logger.Level.WARNING, msg, t);
+    proxy.warn(msg, t);
   }
 }

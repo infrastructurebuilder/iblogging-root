@@ -15,4 +15,5 @@
  */
 module org.infrastructurebuilder.util.logging.noop {
   exports org.infrastructurebuilder.util.logging;
+  requires org.slf4j;
 }
