@@ -1,5 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 
+    @formatter:off
     Copyright © 2019 admin (admin@infrastructurebuilder.org)
 
     Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,35 +15,57 @@
     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
     See the License for the specific language governing permissions and
     limitations under the License.
+    @formatter:on
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.infrastructurebuilder</groupId>
     <artifactId>ibparent</artifactId>
-    <version>68</version>
+    <version>75</version>
   </parent>
+
   <groupId>org.infrastructurebuilder.util.logging</groupId>
   <artifactId>iblogging-root</artifactId>
   <version>0.14.1-SNAPSHOT</version>
   <packaging>pom</packaging>
+
   <name>${project.artifactId}</name>
   <description>Logging config should be relatively standardized.  The artifacts from this build will allow for that as `type` XML artifacts</description>
-	<!-- URL for site gen -->
+  <!-- URL for site gen -->
   <url>https://github.com/${team.group.id}/iblogging-root</url>
-  <distributionManagement>
-    <site>
-      <id>central</id>
-      <url>dav:${site.target.url}/</url>
-    </site>
-  </distributionManagement>
+
+  <modules>
+    <module>iblog-maven-component</module>
+    <module>iblog-noop-logger</module>
+    <module>iblog-JDKSL-component</module>
+    <module>iblog-slf4j-component</module>
+    <module>iblogconfig</module>
+  </modules>
+
   <scm>
     <connection>scm:git:${git.url}</connection>
     <developerConnection>scm:git:${git.url}</developerConnection>
     <url>${git.scm.url}</url>
     <tag>HEAD</tag>
   </scm>
+  <distributionManagement>
+    <site>
+      <id>central</id>
+      <url>dav:${site.target.url}/</url>
+    </site>
+  </distributionManagement>
+
+  <properties>
+    <ib.site.path>${project.groupId}/${project.artifactId}/${project.version}</ib.site.path>
+    <site.target.url>${ib.site.view.url}</site.target.url>
+    <logging.invoker.test.version>${project.version}</logging.invoker.test.version>
+    <!-- This is a setup for standard invoker settings (versions > 0.9.1) -->
+    <this.projectVersion>${project.version}</this.projectVersion>
+  </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -51,13 +75,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
-  <properties>
-    <ib.site.path>${project.groupId}/${project.artifactId}/${project.version}</ib.site.path>
-    <site.target.url>${ib.site.view.url}</site.target.url>
-    <logging.invoker.test.version>${project.version}</logging.invoker.test.version>
-    <!-- This is a setup for standard invoker settings (versions > 0.9.1) -->
-    <this.projectVersion>${project.version}</this.projectVersion>
-  </properties>
+
   <build>
     <pluginManagement>
       <plugins>
@@ -72,11 +90,4 @@
       </plugins>
     </pluginManagement>
   </build>
-  <modules>
-    <module>iblog-maven-component</module>
-    <module>iblog-noop-logger</module>
-    <module>iblog-JDKSL-component</module>
-    <module>iblog-slf4j-component</module>
-    <module>iblogconfig</module>
-  </modules>
 </project>
