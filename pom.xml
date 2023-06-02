@@ -29,7 +29,7 @@
 
   <groupId>org.infrastructurebuilder.util.logging</groupId>
   <artifactId>iblogging-root</artifactId>
-  <version>0.14.1-SNAPSHOT</version>
+  <version>0.14.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
