@@ -29,7 +29,7 @@
 
   <groupId>org.infrastructurebuilder.util.logging</groupId>
   <artifactId>iblogging-root</artifactId>
-  <version>0.14.2</version>
+  <version>0.14.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
@@ -49,7 +49,7 @@
     <connection>scm:git:${git.url}</connection>
     <developerConnection>scm:git:${git.url}</developerConnection>
     <url>${git.scm.url}</url>
-    <tag>iblogging-root-0.14.2</tag>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <site>
