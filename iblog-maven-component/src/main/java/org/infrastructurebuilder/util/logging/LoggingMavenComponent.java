@@ -17,6 +17,7 @@
  */
 package org.infrastructurebuilder.util.logging;
 
+import java.util.Objects;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -25,8 +26,6 @@ import javax.inject.Named;
 import org.apache.maven.plugin.logging.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.lang.System;
 
 @Named(LoggingMavenComponent.LOGGING_MAVEN_COMPONENT)
 public class LoggingMavenComponent implements Log {
@@ -39,10 +38,15 @@ public class LoggingMavenComponent implements Log {
     return cs.toString();
   }
 
-  private Logger log = LoggerFactory.getLogger(LoggingMavenComponent.class.getName());
+  private Logger log;
 
   @Inject
   public LoggingMavenComponent() {
+    log = LoggerFactory.getLogger(LoggingMavenComponent.class.getName());
+  }
+
+  public LoggingMavenComponent(Logger existingLog) {
+    this.log = Objects.requireNonNull(existingLog);
   }
 
 //  public LoggingMavenComponent(Logger log) {

@@ -40,6 +40,7 @@ public class LoggingMavenComponentTest {
   }
 
   Log cLog;
+  Log dLog;
   private ClassWorld kw;
   private ContainerConfiguration dpcreq;
   private DefaultPlexusContainer c;
@@ -57,6 +58,7 @@ public class LoggingMavenComponentTest {
 //    cLog = (Log) c.lookup(Log.class.getCanonicalName().toString(), LOGGING_MAVEN_COMPONENT);
 
     cLog = new LoggingMavenComponent();
+    dLog = new LoggingMavenComponent(LoggerFactory.getLogger("TESTME!"));
   }
 
   @Test
@@ -89,6 +91,11 @@ public class LoggingMavenComponentTest {
   @Test
   public void testLoggingMavenComponent() {
     assertNotNull(cLog, "Got component");
+  }
+
+  @Test
+  public void testLoggingMavenComponentWothLog() {
+    assertNotNull(dLog, "Got component");
   }
 
   @Test
