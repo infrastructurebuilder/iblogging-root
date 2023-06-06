@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.infrastructurebuilder.util.logging</groupId>
     <artifactId>iblogging-root</artifactId>
-    <version>0.14.3</version>
+    <version>0.14.4-SNAPSHOT</version>
   </parent>
 
   <artifactId>iblog-maven-component</artifactId>
