@@ -18,13 +18,15 @@
     @formatter:on
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>org.infrastructurebuilder</groupId>
     <artifactId>ibparent</artifactId>
-    <version>90</version>
+    <version>91-SNAPSHOT</version>
   </parent>
 
   <groupId>org.infrastructurebuilder.util.logging</groupId>
@@ -33,7 +35,8 @@
   <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
-  <description>Logging config should be relatively standardized.  The artifacts from this build will allow for that as `type` XML artifacts</description>
+  <description>Logging config should be relatively standardized. The artifacts
+    from this build will allow for that as `type` XML artifacts</description>
   <!-- URL for site gen -->
   <url>https://github.com/${team.group.id}/iblogging-root</url>
 
@@ -64,6 +67,7 @@
     <logging.invoker.test.version>${project.version}</logging.invoker.test.version>
     <!-- This is a setup for standard invoker settings (versions > 0.9.1) -->
     <this.projectVersion>${project.version}</this.projectVersion>
+    <maven.compiler.jdk.version>11</maven.compiler.jdk.version>
   </properties>
 
   <dependencyManagement>
@@ -83,7 +87,8 @@
           <artifactId>maven-invoker-plugin</artifactId>
           <configuration>
             <filterProperties>
-              <mavenplexuscomponentmetadataversion>${maven.plexus.component.metadata.version}</mavenplexuscomponentmetadataversion>
+              <mavenplexuscomponentmetadataversion>
+                ${maven.plexus.component.metadata.version}</mavenplexuscomponentmetadataversion>
             </filterProperties>
           </configuration>
         </plugin>
