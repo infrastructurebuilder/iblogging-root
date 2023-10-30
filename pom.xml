@@ -18,9 +18,7 @@
     @formatter:on
 
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
@@ -31,7 +29,7 @@
 
   <groupId>org.infrastructurebuilder.util.logging</groupId>
   <artifactId>iblogging-root</artifactId>
-  <version>0.14.4-SNAPSHOT</version>
+  <version>0.14.4</version>
   <packaging>pom</packaging>
 
   <name>${project.artifactId}</name>
@@ -52,7 +50,7 @@
     <connection>scm:git:${git.url}</connection>
     <developerConnection>scm:git:${git.url}</developerConnection>
     <url>${git.scm.url}</url>
-    <tag>HEAD</tag>
+    <tag>iblogging-root-0.14.4</tag>
   </scm>
   <distributionManagement>
     <site>
